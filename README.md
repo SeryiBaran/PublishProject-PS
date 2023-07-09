@@ -10,6 +10,12 @@ Install-Module PublishProject
 
 ## Usage
 
+> Don't forget to import module =)
+>
+> ```powershell
+> Import-Module PublishProject
+> ```
+
 ### `Publish-Project`
 
 ```
@@ -21,7 +27,7 @@ SYNOPSIS
 
 
 SYNTAX
-    Publish-Project [-UseSSH] <Boolean> [[-RepoName] <String>] [<CommonParameters>]
+    Publish-Project [[-UseSSH] <Boolean>] [[-RepoName] <String>] [<CommonParameters>]
 
 
 DESCRIPTION
@@ -33,9 +39,9 @@ PARAMETERS
     -UseSSH <Boolean>
         Use SSH or HTTPS (boolean)
 
-        Required?                    true
+        Required?                    false
         Position?                    1
-        Default value                False
+        Default value                True
         Accept pipeline input?       false
         Accept wildcard characters?  false
 
@@ -59,7 +65,7 @@ OUTPUTS
 
     -------------------------- EXAMPLE 1 --------------------------
 
-    PS > Publish-Project -s 1
+    PS > Publish-Project
 
 
 
@@ -68,7 +74,7 @@ OUTPUTS
 
     -------------------------- EXAMPLE 2 --------------------------
 
-    PS > Publish-Project -s 1 -n NameWhatNotEqualsDirectoryName
+    PS > Publish-Project -s 0 -r RepoNameWhatNotEqualsDirectoryName # Don't use SSH and use custom repo name
 
 
 

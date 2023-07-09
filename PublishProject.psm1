@@ -13,18 +13,17 @@
   Custom GitHub repository name (if repo name is not directory name)
 
  .Example
-  Publish-Project -s 1
+  Publish-Project
 
  .Example
-  Publish-Project -s 1 -r RepoNameWhatNotEqualsDirectoryName
+  Publish-Project -s 0 -r RepoNameWhatNotEqualsDirectoryName # Don't use SSH and use custom repo name
 #>
 function Publish-Project {
   [CmdletBinding()]
   param(
-    [parameter(Mandatory = $true)]
     [alias("s")]
     [boolean]
-    $UseSSH,
+    $UseSSH = $True,
 
     [alias("r")]
     [string]
@@ -59,10 +58,10 @@ function Publish-Project {
     git push -u origin main
   }
   catch {
-    Write-Error "🚨 Oh, error occurred:"
+    Write-Host "Oh, error occurred:" -ForegroundColor red
     Write-Error $_
     break
   }
 
-  Write-Host "✨ Done!" -ForegroundColor green
+  Write-Host "Done!" -ForegroundColor green
 }

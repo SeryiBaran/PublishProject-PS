@@ -5,7 +5,7 @@ Tiny PowerShell module for initializing git repository and push it to GitHub.
 ## Installing
 
 ```powershell
-Install-Module PublishProject
+Install-Module PublishProject -Scope CurrentUser -AllowClobber
 ```
 
 ## Usage
